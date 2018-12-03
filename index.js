@@ -106,6 +106,8 @@ function JestTeamcityReporter(globalConfig, _options) {
     * https://facebook.github.io/jest/docs/en/configuration.html#testresultsprocessor-string
     */
 	if (Object.prototype.hasOwnProperty.call(globalConfig, 'testResults')) {
+        console.log('GLOBAL_CONFIG', globalConfig);
+        console.log('GLOBAL_CONFIG - TEST RSLTS', globalConfig);
         // Generate Report
         logResults(globalConfig);
 		// Return the results as required by Jest
@@ -118,6 +120,8 @@ function JestTeamcityReporter(globalConfig, _options) {
     * https://facebook.github.io/jest/docs/en/configuration.html#reporters-array-modulename-modulename-options
     */
 	this.onRunComplete = (_contexts, testResult) => {
+        console.log('ON_RUN_COMPLETE - CONTEXTS: ', _contexts);
+        console.log('ON_RUN_COMPLETE - TEST RESULTS: ', testResult);
         logResults(testResult);
 	};
 }
